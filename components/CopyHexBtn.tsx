@@ -2,13 +2,11 @@ import { View, Text, Pressable, StyleSheet } from 'react-native'
 import React from 'react'
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { copyToClipboard } from '@/helpers/copyToClipboard';
+import { useColorContext } from '@/context/ColorContext';
 
-interface Props {
-  hexToCopy: string
-  textColor: string
-}
+export default function CopyHexBtn() {
+  const { bgColor: hexToCopy, textColor } = useColorContext()
 
-export default function CopyHexBtn({ hexToCopy, textColor }: Props) {
   return (
     <Pressable
       style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1 }, styles.btn]}
